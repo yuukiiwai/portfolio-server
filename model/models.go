@@ -10,12 +10,12 @@ type Work struct {
 }
 
 type News struct {
-	Id       int    `json:id`
+	Id       int    `json:"id"`
 	Title    string `json:"title"`
 	Topimg   string `json:"topimg"`
 	Sentence string `json:"sentence"`
 }
 
 type Tackle struct {
-	Id string `json:id`
+	Id string `json:"id"`
 }
