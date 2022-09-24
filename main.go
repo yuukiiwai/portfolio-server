@@ -12,7 +12,7 @@ import (
 func main() {
 	e := echo.New()
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
-		AllowOrigins: []string{"http://localhost:3000"},
+		AllowOrigins: []string{"http://localhost:3000", "https://portfolio.yukiserv.com"},
 		AllowHeaders: []string{http.MethodGet, echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
 	}))
 	e.GET("/profile/api/v1/works", api.GetWork)
