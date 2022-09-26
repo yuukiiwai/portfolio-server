@@ -14,24 +14,25 @@ import (
 
 func GetWork(c echo.Context) error {
 	var works []model.Work
-	db := db.Connect()
-	db.Table("works").Find(&works)
+	dbc := db.Connect()
+	dbc.Table("works").Find(&works)
 	data, _ := json.Marshal(works)
+	db.Close(dbc)
 
 	return c.String(http.StatusOK, string(data))
 }
 
 func GetNews(c echo.Context) error {
 	var news []model.News
-	db := db.Connect()
-	db.Table("news").Find(&news)
+	dbc := db.Connect()
+	dbc.Table("news").Find(&news)
 	data, _ := json.Marshal(news)
+	db.Close(dbc)
 
 	return c.String(http.StatusOK, string(data))
 }
 
 func GetTackle(c echo.Context) error {
-
 	var tackles []model.Tackle
 	var ids = GetTackleRss()
 	for i := 0; i < len(ids); i++ {

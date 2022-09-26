@@ -15,3 +15,8 @@ func Connect() *gorm.DB {
 
 	return db
 }
+
+func Close(gd *gorm.DB) {
+	sqlDB, _ := gd.DB()
+	sqlDB.Close()
+}
